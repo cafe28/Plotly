@@ -15,8 +15,6 @@ function buildMetadata(sample) {
     // Use `.html("") to clear any existing metadata
     panel.html("");
 
-    console.log(metadata)
-    console.log(filterResult)
 
     // Inside a loop, you will need to use d3 to append new tags for each key-value in the filtered metadata.
     Object.entries(filterResult).forEach(([key, value]) => {
@@ -24,7 +22,6 @@ function buildMetadata(sample) {
     });
   });
 }
-console.log(buildMetadata(940))
 
 // function to build both charts
 function buildCharts(sample) {
@@ -41,8 +38,6 @@ function buildCharts(sample) {
     const otu_ids = filterSampleNumber.otu_ids;
     const otu_labels = filterSampleNumber.otu_labels;
     const sample_values = filterSampleNumber.sample_values;
-
-    console.log(buildMetadata(940))
 
 
     // Build a Bubble Chart
@@ -63,7 +58,7 @@ function buildCharts(sample) {
       margin: { t: 0 },
       hoverlabel: { bgcolor: "white" },
       xaxis: { title: "OTU ID" },
-      yaxis: { title: "Sample Value" }
+      yaxis: { title: "Number of Bacteria" }
     };
 
     // Render the Bubble Chart
@@ -111,7 +106,7 @@ function init() {
     });
 
     // Get the first sample from the list
-    const firstSample = names[1];
+    const firstSample = names[0];
 
     // Build charts and metadata panel with the first sample
     buildCharts(firstSample);
